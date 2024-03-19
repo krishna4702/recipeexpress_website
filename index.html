@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo5.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>RECIPE EXPRESS</title>
+</head>
+<body>
+
+    <!--- Navigation Bar -->
+    <div class="header">
+        <nav class="nav-bar">
+            <img src="logo5.jpg" class="brand-name">
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="menu-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Search Bar -->
+        <div class="title">Find a Recipe</div>
+        <div class="search-wrapper">
+            <div class="fa fa-search"></div>
+            <input type="text" name=""  id="search" placeholder="What do you want to eat?" onkeyup="search()">
+            <div class="fa fa-times" onclick="clearInput()" ></div>
+        </div>
+    </div>
+
+    <!-- Search Results -->
+        <div class="result">
+            <h1>Your Search Result: </h1>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="card-grid" >       <div class="card card-shadow">
+
+            <div class="card-header card-image">
+                <img src="dhokla.jpg">
+            </div>
+            <div class="card-body" >
+            <h3> DHOKLA(GUJARAT) </h3>
+            </div>
+            <div class="card-footer">
+                <button class="btn" onclick="get2ndRecipe()">Get Recipe</button>
+            </div>
+        </div>
+        <div class="card card-shadow">
+            <div class="card-header card-image">
+                <img src="khaman.jpg">
+            </div>
+            <div class="card-body" >
+                <h3>KHAMAN(GUJARAT)</h3>
+            </div>
+            <div class="card-footer">
+                <button class="btn" onclick="get3rdRecipe()">Get Recipe</button>
+            </div>
+        </div>
+        <div class="card card-shadow">
+            <div class="card-header card-image">
+                <img src="fafda.jpg">
+            </div>
+            <div class="card-body" >
+                <h3>FAFDA </h3>
+            </div>
+            <div class="card-footer">
+                <button class="btn" onclick="get4thRecipe()">Get Recipe</button>
+            </div>
+        </div>
+        <div class="card card-shadow">
+            <div class="card-header card-image">
+                <img src="kachori.jpg">
+            </div>
+            <div class="card-body" >
+            <h3> KACHORI </h3>
+            </div>
+            <div class="card-footer">
+                <button class="btn" onclick="get5thRecipe()">Get Recipe</button>
+            </div>
+        </div>
+        <div class="card card-shadow">
+            <div class="card-header card-image">
+                <img src="idlisambhar.jpg">
+            </div>
+            <div class="card-body" >
+            <h3> IDLI SAMBHAR</h3>
+            </div>
+            <div class="card-footer">
+                <button class="btn" onclick="get6thRecipe()">Get Recipe</button>
+            </div>
+        </div>
+        <div class="card card-shadow">
+            <div class="card-header card-image">
+                <img src="vadapav.jpg">
+            </div>
+            <div class="card-body" >
+            <h3> VADA PAV</h3>
+            </div>
+            <div class="card-footer">
+                <button class="btn" onclick="get7thRecipe()">Get Recipe</button>
+            </div>
+        </div>
+        <div class="card card-shadow">
+            <div class="card-header card-image">
+                <img src="burger.jpg">
+            </div>
+            <div class="card-body" >
+            <h3>BURGER</h3>
+            </div>
+            <div class="card-footer">
+                <button class="btn" onclick="get8thRecipe()">Get Recipe</button>
+            </div>
+        </div>
+        <div class="card card-shadow">
+            <div class="card-header card-image">
+                <img src="sandwich.jpg">
+            </div>
+            <div class="card-body" >
+                <h3>SANDWICH</h3>
+                </div>
+                <div class="card-footer">
+                    <button class="btn" onclick="get9thRecipe()">Get Recipe</button>
+                </div>
+            </div>
+            <div class="card card-shadow">
+                <div class="card-header card-image">
+                    <img src="pasta.jpg">
+                </div>
+                <div class="card-body" >
+                <h3>PASTA</h3>
+                </div>
+                <div class="card-footer">
+                    <button class="btn" onclick="get10thRecipe()">Get Recipe</button>
+                </div>
+            </div>
+            <div class="card card-shadow">
+                <div class="card-header card-image">
+                    <img src="poha.jpg">
+                </div>
+                <div class="card-body" >
+                <h3>POHA</h3>
+                </div>
+                <div class="card-footer">
+                    <button class="btn" onclick="get11thRecipe()">Get Recipe</button>
+                </div>
+            </div>
+    </div> 
+
+    <!--Ending of Main Content-->
+
+    <!--Recipe Details-->
+    <div class = "meal-detail" id="meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name"></h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about"> </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p>
+                    <br>
+                </p>
+                <h3>Instruction:</h3>
+                <p><br></p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "dhokla.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=w_2eb9uaXns" class="meal-link-btn">Watch Video</a>
+            </div>
+        </div>
+    </div>
+    <div class = "second-meal-detail" id="second-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">DHOKLA</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Dhokla is a savoury cake made out of Bengal gram flour and is steamed to get a fluffy texture. The dish occupies pride of place in its state of origin — Gujarat, and has become a favourite across the country. It's a low-calorie, healthy and protein-packed snack.</p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>1 cup gram flour (besan)
+                    <br> 3/4 cup water
+                    <br> 1 teaspoon sugar
+                    <br> 1 tablespoon lemon juice
+                    <br> 1 teaspoon salt
+                    <br> 3/4 teaspoon baking soda
+                    <br> 1 tablespoon refined oil
+                   <br>  15 curry leaves
+                   <br>  1 teaspoon mustard seeds
+                    <br> For Garnishing
+                   <br>  4 sliced green chilli
+                   <br>  1 handful coriander leaves
+                    <br> 1 teaspoon coconut powder.
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>Pour the water in a pan and bring to a boil Add salt and pepper.
+                    <br>Place a small trivet in a large steaming pan that has enough room to keep the pan with the batter. Pour 2 to 2.5 cups of water. Bring it to a boil.
+                   <br> Place the batter pan as soon you mix with eno. Cover with a lid (not tight fitting) but one that has a vent or will allow some steam to pass through.
+                    Steam for 12 to 15 minutes on medium-high heat. The deeper the pan is in touch with the boiling water, the faster the steaming is. If it is away from the boiling water, the steaming will take a bit more time.
+                   <br> 2. Steaming in a stove-top pressure cooker
+                    Place the trivet in a pressure cooker. Add 2 to 2.5 cups water. Heat the water until it begins boiling. Secure the pan tightly between tongs and carefully place it on the trivet.
+                    Remove the whistle (vent weight) from the lid and seal the lid tightly. Steam for 12 to 15 minutes on medium to medium-high heat.
+                   <br> 3. Instant Pot Steaming
+                    Pour 2 to 2.5 cups of water in the steel insert of your IP. Place a trivet (not short or long, but kind of in between).
+                    Use the sauté function and let the water get heated up and start simmering.
+                    Using tongs or with oven mitts carefully place the pan with the khaman batter on the trivet. Do not cover with any lid.
+                    Cover and seal IP with its lid and keep the vent position to steam release. Press the steam button and steam on high pressure for 12 to 15 minutes.
+                   <br> Keep a check of the time using a clock or watch as Instant pot does will not beep after the elapsed time and will continue to steam. Let all the pressure release and the valve fall down. Then open the lid carefully </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "dhokla.jpg" alt = "Get Recipe">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=w_2eb9uaXns" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div>  
+    <div class = "third-meal-detail" id="third-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">KHAMAN</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Khaman is a savoury snack from India that originates from Gujarat. It is a steamed sponge with a fluffy consistency, often served with a garnish of fresh chopped coriander leaves.
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>1 piece 8 oz pork loin chop
+                    <br>	2 cups besan (chick-pea flour)
+                    <br>	1/4 tsp baking soda
+                    <br>	1/4 tsp ajwain (thymol)
+                    <br>	1/4 tsp haldi (turmeric)
+                    <br>	1 Tbsp oil
+                    <br>	1/2 tsp salt tsp or to taste
+                    <br>	Oil to deep-fry
+                    
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>Soak gram for 4 hours.
+                   <br> 2.Grind it in a mixture machine.add rice floor.
+                   <br> 3.Add curd, soda bicarb and oil.
+                   <br> 4.Keep it aside for 6-7 hours.
+                   <br> 5.After that add ginger and green mirch powder, fruit salt and salt.
+                   <br> 6.Grease idli vessel, fill the batter and cook it for 10-15 mins.
+                   <br> 7.After that make tadka of mustard seeds and chopped green mirch.
+                   <br> 8.Garnish it with coriander.
+                    
+                    </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "khaman.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=1GoPZ7mpDy8" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div>  
+    <div class = "four-meal-detail" id="four-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">FAFDA</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Fafda is a fried crispy crunchy tasty snack made with besan (gram flour), laced with carom seeds and black pepper. It is a popular Gujarati vegan snack that is highly addictive and scrumptious.
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>  	1 piece 8 oz pork loin chop
+                    <br>	2 cups besan (chick-pea flour)
+                    <br>	1/4 tsp baking soda
+                    <br>	1/4 tsp ajwain (thymol)
+                    <br>	1/4 tsp haldi (turmeric)
+                    <br>	1 Tbsp oil
+                    <br>	1/2 tsp salt tsp or to taste
+                    <br>	Oil to deep-fry
+
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>1.Mix the besan, soda, ajwain, haldi, 1 tbsp oil and salt together.
+                   <br> Add water and knead into a soft dough.
+                    <br>3.Take a portion of the dough and place it on a greased surface.
+                  <br>   4. With base of your palm, drag the dough in a straight line, holding the dough at the starting point with the other hand.
+                    <br>5.This will form a strip.
+                   <br> 6. Fry these strips over medium heat till crisp.
+                    
+                    
+                    	
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "fafda.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=NJ5Blr2oUu0" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div>  
+    <div class = "five-meal-detail" id="five-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">KACHORI</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Kachori (pronounced [kətʃɔːɽi]) is a sweet and spicy deep-fried snack, originating in India subcontinent, and common in places with Indian diaspora and other South Asian diaspora.
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br> 	1/2 Cup Urad dal
+                    <br>	2 tbsp vegetable oil
+                    <br>	1 tsp jeera (cumin seeds)
+                    <br>    1 1/2 tsp salt
+                    <br>	1/8 tsp heeng (asafoetida) powder
+                    <br>	2 tsp green chillies
+                    <br>	1 tsp chilli powder
+                    <br>	1 tsp khus khus (poppy seeds)
+                    <br>	2 tbsp tamarind pulp
+                    <br>    2 tsp sugar
+                    <br>	Ginger
+                    <br>	Garam masala
+                    <br>	Coconut
+                    <br>	For outer covering:
+                    <br>	1 cup maida (refined flour)
+                    <br>	3 tbsp ghee/oil
+                    <br>	1/4 tsp baking powder
+                    <br>	1/2 tsp salt
+                    <br>	Oil (for deep frying)
+                    
+                    
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>Drain dal and grind coarsely.
+                   <br> 2.
+                    Heat oil and add jeera. When it splutters, add ginger, heeng, green chillies and saute till the color changes a bit.
+                  <br>  3.
+                    Add dal, salt, garam masala, chilli powder, khus khus, coconut and saute till it's 'fried'. Add about 1/4 cup water and cook till dal is cooked through. Mix in the tamarind and sugar and keep aside.
+                   <br> 4.
+                    Mix baking powder and salt into the maida. Rub ghee/oil into the maida, add water and knead into stiff dough. Rest, cover for 15 minutes.
+                  <br>  5.
+                    Make walnut sized rounds of the dal mixture.
+                  <br>  6.
+                    Break pieces of dough and roll into walnut sized rounds. Roll these flat into 1/4 inch rounds and pinch about 1/2 of the edge all around, leaving the centre thicker.
+                  <br>  7.
+                    Now wet the pressed edges, and place a ball of the filling in the centre. Bring the wet edges together, covering the filling completely, and pinch together to seal.
+                   <br> 8.
+                    Heat oil and deep-fry the kachoris, first over high heat, then over medium heat so that it cook's through, and browns evenly.
+                    
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "kachori.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=ESZ0XvIqQY8&t=1s" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div> 
+    <div class = "six-meal-detail" id="six-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">IDLI SAMBHAR</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Idli sambar are almost inseparable members on a traditional South Indian platter. Idlies are steamed cakes made of fermented rice-and-lentil batter. The first menu item in any South Indian restaurant is invariably idli.
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>     For Idli:
+                    <br>    Idli rice – 2 cups
+                    <br>	Urd dal – 1/2 cup
+                    <br>	Poha – 1/4 cup
+                    <br>	Salt to taste
+                    <br>    For Sambhar:
+                    <br>    Arhar ki dal – 1/2 cup
+                    <br>    Turmeric powder – 1/2 tsp
+                    <br>    Salt to taste
+                    <br>    Oil – 2 tsp
+                    <br>    Mustard seeds – 1/2 tsp
+                    <br>    Curry leaves – 10-12
+                    <br>    Onion – 1 cup (chopped)
+                    <br>    Tomato – 1 cup (chopped)
+                    <br>    Sambhar masala – 2 tbsp
+                    <br>	Brinjal – 1 (chopped)
+                    <br>  	Tamarind pulp – 2 tbsp
+
+                    
+                    
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>   For Idli:
+                    <br>Wash and soak rice poha and urd dal separately for 4-5 hours.
+                    <br>Drain and blend in a blender together with salt and poha till smooth.
+                    <br>Transfer the batter in a big vessel and cover and keep to ferment for 6-8 hours.
+                    <br>Grease the idli molds and pour the batter in each mold.
+                    <br>Steam the idlies for 15-20 minutes, till done.
+                   <br> For Sambhar:
+                    <br>Wash the dal.
+                    <br>Add it in a pressure cooker with salt and turmeric powder.
+                    <br>Cook till done.
+                    <br>Add oil in a pan.
+                    <br>When the oil is hot, add mustard seeds and curry leaves.
+                    <br>Add onion and fry for 2 minutes.
+                    <br>Add tomatoes, brinjal, and sambhar masala.
+                    <br>Add half a cup of water and cook till brinjal is soft.
+                    <br>Add the cooked dal and tamarind pulp.
+                    <br>Cook for another 4-5 minutes.
+                    <br>Serve hot with idlies.
+                    
+                                     
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "idlisambhar.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=nIoIzarlQ1k" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div> 
+    <div class = "seven-meal-detail" id="seven-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">VADAPAV</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Vada pav, alternatively spelt wada pao, ( listen) is a vegetarian fast food dish native to the Indian state of Maharashtra. 
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>	    2 Tbsp oil
+                    <br>    1/4 tsp hing
+                    <br>    1 tsp mustard seeds
+                    <br>    2 tsp saunf
+                    <br>    1 onion
+                    <br>    2 tsp green chilli - garlic paste
+                    <br>    2 nos potato, boiled
+                    <br>    1 tsp turmeric powder
+                    <br>    1 tsp salt
+                    <br>    2 tsp red chilli powder
+                    <br>    2 tsp coriander leaves
+                    <br>	2 tsp lemon juice
+                    <br>    For masala paste:
+                    <br>	9 garlic cloves
+                    <br>	5 nos red chilli whole
+                    <br>	2 tsp white sesame seeds
+                    <br>	1 cup dessicated coconut
+                    <br>	2 tsp peanuts, roasted
+                    <br>	1/2 tsp salt
+                    <br>	1/2 tsp red chilli powder
+                    <br>	1/2 tsp tamarind
+                    <br>	1 cup besan
+                    <br>	1/4 cup soda
+                    <br>	1 tsp salt
+                    <br>	1 tsp red chilli powder
+                    <br>	4 Green chillies
+                    
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>Prepare Aloo Vada:
+                    <br>1.
+                    Take oil in a pan, put hing, mustard seeds and saunf. Roast together.
+                   <br> 2.
+                    Add onion and Green chilli-garlic paste and saute well.
+                   <br> 3.
+                    Now add boiled potatoes, turmeric powder, aa tsp of salt, 2 tsp of red chilli powder and coriander leaves.
+                   <br> 4.
+                    Mix them well and add lemon juice. Saute to make a paste.
+                   <br> Prepare Masala Paste:
+                   <br> 1.
+                    Put oil in a pan and add garlic along with red chilli whole, white sesame seeds and desiccated coconut.
+                   <br> 2.
+                    Mix them well and add roasted peanuts and half a tsp each of salt and red chilli powder. Mix well.
+                   <br> 3.
+                    Now add tamarind and grind all the ingredients together to get a paste.
+                   <br> 4.
+                    Next, take a bowl and add besan, soda, a tsp each of salt and red chilli powder.
+                   <br> 5.
+                    Put some water and mix thoroughly to make a besan mix.
+                   <br> 6.
+                    Take the prepared masala paste and make small ball of it.
+                    <br>7.
+                    Dip the balls completely in to the besan mix and deep fry in the pan.
+                   <br> 8.
+                    Fry till golden brown.
+                   <br> 9.
+                    Put some green chillies in the pan to fry for a while.
+                    <br>10.
+                    Take buns and put green chutney, masala paste and the fried masala pakodas between them.
+                   <br> 11.
+                    Serve with the garnishing of fried green chillies on top of it.
+                    
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "vadapav.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=nENvM_ksQf8" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div> 
+    <div class = "eight-meal-detail" id="eight-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">BURGER</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">A hamburger, or simply burger, is a food consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll.
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>
+                   <br> 120 gm french beans - strung, 
+                   <br> blanched and chopped fine
+                   <br> 120 gm cabbage - grated
+                   <br> 120 gm cauliflower grated
+                   <br> 1/2 cup carrots -grated
+                   <br> 1 cup potatoes -
+                    <br>  boiled and mashed
+                    <br>  2 tsp coriander powder
+                     <br> Salt - to taste
+                     <br> 1/4 tsp turmeric powder
+                     <br> 1/2 cup boiled peas
+                     <br> 2 eggs - slightly beaten
+                      <br>1/4 cup maidaBread crumbs
+                    <br>Oil
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>1.Heat oil in a pan and add all the beans, carrots, cauliflower and cabbage to it. Stir over high heat.
+                    <br>2.Add coriander powder, salt, turmeric powder and mix well.
+                   <br> 3.Turn off the heat. Keep aside to cool.
+                   <br> 4.When cool mix in the boiled potatoes and peas.
+                   <br> 5.Make thin rounds so as to match the bun.
+                    <br>6.Dust with maida and dip into the beaten egg.
+                   <br> 7.Coat with bread crumbs.
+                   <br> 8.Heat oil and deep fry till they turn golden brown in colour.
+                   <br> 9.Slit the burger roll and place the patty in it along with mustard and mayonnaise. 
+                   <br> 10.Serve.
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "burger.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=hsF0pzZpXWY" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div> 
+    <div class = "nine-meal-detail" id="nine-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">SANDWICH</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">A sandwich is a food typically consisting of vegetables, sliced cheese or meat, placed on or between slices of bread, or more generally any dish .
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>For the Sandwich:
+                  <br>  1/2 red, green and yellow bell peppers
+                  <br>  1 onion
+                  <br>  40 gm leak
+                  <br>  1 small egg plant
+                   <br> 50 gm yellow squash
+                   <br> 50 gm zucchini
+                   <br> 50 gm broccoli, cut into florets
+                  <br>  Handful of lettuce leavesSalt and pepper to season
+                  <br>  2-3 Tbsp olive oil
+                  <br>  3-4 slices of BrieF
+                  <br>  or the Marinade:
+                  <br>  1 Tbsp balsamic vinegar
+                  <br>  2 Tbsp olive oil
+                  <br>  Salt and pepper to season
+                  <br>  1 tsp chilli flakes
+                  <br>  2 basil leaves1 sage leaf
+                  <br>  1 small bunch rosemary, chopped
+                  <br>  For the Spread:
+                  <br>  3 Tbsp cream cheese
+                  <br>  2 Tbsp plum chutney
+                  <br>  Salt and pepper to taste
+                  <br>  Few drops of tobasco
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>1.Trim the broccoli into florets.
+                    <br>2.Grill the bell peppers, squash, zucchini and eggplant on both sides. Baste with olive oil and herbs.
+                    <br>3.Marinate the grilled vegetables with the mixture for about 10 minutes.
+                    <br>4.Grill two slices of bread.
+                    <br>5.Make a spread by mixing together cream cheese, plum chutney, a few drops of tobasco and season with salt and pepper.
+                    <br>6.Spread this plum cheese mixture on the slices of bread.
+                    <br>7.Layer a few leaves of lettuce and add the vegetable mix.
+                    <br>8.Add a 2-3 slices of Brie cheese. 
+                    <br>Serve with chips.
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "sandwich.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=Yv5UfXYPmfM" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div> 
+    <div class = "ten-meal-detail" id="ten-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">PASTA</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Pasta is a food made from flour, starch and water. It is usually cooked in hot water before being eaten. Pasta has been very popular in Italy and has also been eaten in many parts of Asia for a long time.
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>2 Cups pasta fettuccine
+                   <br> 5 tbsp cream
+                   <br>1 tsp garlic, chopped
+                    <br>2 tsp olive oil
+                    <br>1 tbsp capsicum red
+                    <br>1 tbsp capsicum yellow
+                    <br>1 tbsp broccoli
+                    <br>1/2 tsp parsley, choppedSalt (according to taste)
+                    <br>1/2 black pepper (crushed).
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>Boil the pasta as per the instructions printed on the packet. Then strain pasta and let it cool.
+                    <br>2.Heat a pan and pour olive oil on it till it's slightly warm. Add chopped garlic and vegetables and saute for a minute.
+                    <br>3.Add fresh cream, salt and pepper and then toss in the fettuccine pasta. Cook for about two minutes.
+                    <br>4.Transfer into a serving dish and garnish with Parmesan cheese and chopped parsley.
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "pasta.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=VU6N5YxWRAE" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div> 
+    <div class = "eleven-meal-detail" id="four-meal-detail">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+            <i class ="fas fa-times"></i>
+        </button>
+
+        <!-- recipe details -->
+        <div class="meal-content">
+            <h2 class="meal-name">POHA</h2>
+            <div class="meal-about">
+                <h3 class="meal-title-about">About Meal</h3>
+                <p class="meal-descript-about">Pohaa, also known as pauwa, sira, chira, aval (அவல்) or avalakki, among many other names, is flattened rice originating from the Indian subcontinent.
+                </p>
+            </div>
+            <div class = "meal-instruct">
+                <h3>Ingridients:</h3>
+                <p><br>	1 Cup Poha/chivda (pressed rice)
+                    <br>	1 tbsp Oil
+                    <br>	1/8 tsp Asafoetida
+                    <br>	1 tsp Mustard seeds
+                    <br>	1/2 cup Onions, finely chopped
+                    <br>	8-10 Curry leaves
+                    <br>	2-3 Whole red chillies
+                    <br>	1/2 cup Potatoes (diced small)
+                    <br>	1/2 tsp Turmeric
+                    <br>	2 tsp Salt
+                    <br>	1 tsp Green chillies, finely chopped
+                    <br>	1 tbsp Lemon juice
+                    <br>	1 tbsp Coriander leaves, chopped
+                    <br>	For garnish Lemon wedges
+                    
+                </p>
+                <h3>Instruction:</h3>
+                <p><br>1.Put poha in a colander and wash, not letting it soak too long in the water. Leave in the colander to drain out completely.
+                    <br>2.
+                    Heat the oil and add asafoetida, mustard seeds, curry leaves and onions along with whole red chillies.
+                    <br>3.
+                    When onions are light brown, add potatoes, and turn around till they look a bit glossy.
+                    <br>4.
+                    Add the turmeric and sauté over low heat till the potatoes are cooked through.
+                   B<br> 5.
+                    Increase the heat, add salt and poha and mix well. Saute till mixed and heated through.
+                   <br> 6.
+                    Shut off the heat, and mix in the green chillies, lemon juice and half of the coriander.
+                    <br>7.
+                    Transfer on to a serving dish, garnish with the rest of the coriander and lemon wedges and serve.
+                    
+                    
+                </p>
+        
+            </div>
+            <div class = "meal-img">
+                <img src = "poha.jpg" alt = "">
+              </div>
+              <div class = "meal-link">
+                <a href="https://www.youtube.com/watch?v=X35gOeA8l_4" class="meal-link-btn" >Watch Video</a>
+            </div>
+        </div>
+    </div> 
+    
+    
+</div>
+    <!--Ending of Recipe Details-->
+
+    <!--Footer-->
+<div class="footer">
+<div class="social-btn">
+    <a href="https://www.facebook.com/Krishna Soni" target="_blank" ><i class="	fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/krishna9150/" target="_blank" ><i class="	fab fa-instagram"></i></a>
+    
+</div>
+<div class="quick-bar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
+<p>Copyright &copy; 2022 Krishna Soni. All right reserved</p>  
+</div>
+
+<!--Ending of Footer-->
+
+<!--Script for Javascript-->
+<script src="index.js"></script>
+</body>
+</html>
